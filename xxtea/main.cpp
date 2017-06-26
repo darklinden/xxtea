@@ -233,7 +233,7 @@ int main(int argc, const char * argv[]) {
     }
     
     if (!has_opt) {
-        printf("using [xxtea] [-e encrypt / -d decrypt] [-s string] [-f filepath] to do encryption or decryptions.\n");
+        printf("using [xxtea] [-e encrypt / -d decrypt] [-p password] [-s string] [-f filepath] to do encryption or decryptions.\n");
     }
     else {
         printf("Done\n");
