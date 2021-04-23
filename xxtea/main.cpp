@@ -111,7 +111,7 @@ Data data_from_file(const std::string &inpath)
     FILE *pFile = fopen(path.c_str(), "rb");
     
     if (!pFile) {
-        printf("str_from_file %s failed.\n", path.c_str());
+        printf("data_from_file %s failed.\n", path.c_str());
         return Data::Null;
     }
     
@@ -127,7 +127,7 @@ Data data_from_file(const std::string &inpath)
     fread (buffer, 1, lSize, pFile);
     
     if (lSize <= 0) {
-        printf("str_from_file %s failed, length = 0.\n", path.c_str());
+        printf("data_from_file %s failed, length = 0.\n", path.c_str());
     }
     
     Data ret;
@@ -152,7 +152,7 @@ void data_to_file(const std::string &inpath, const Data &content)
     
     auto result = fwrite(content.getBytes(), sizeof(char), content.getSize(), pFile);
     if (result <= 0) {
-        printf("error: fwrite to %s failed.\n", path.c_str());
+        printf("error: data_to_file to %s failed.\n", path.c_str());
     }
     
     fclose (pFile);
@@ -211,7 +211,8 @@ int main(int argc, const char * argv[]) {
                 Data inData = data_from_file(path);
                 std::string key = operations["p"];
                 Data ret = encrypt(inData, key);
-                data_to_file(path, ret);
+                if (ret.getSize()) data_to_file(path, ret);
+                else printf("error: encrypt return null\n");
             }
         }
     }
@@ -237,7 +238,8 @@ int main(int argc, const char * argv[]) {
                 Data inData = data_from_file(path);
                 std::string key = operations["p"];
                 Data ret = decrypt(inData, key);
-                data_to_file(path, ret);
+                if (ret.getSize()) data_to_file(path, ret);
+                else printf("error: decrypt return null\n");
             }
         }
     }
