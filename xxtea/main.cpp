@@ -56,7 +56,12 @@ Data encrypt(const Data &data, const std::string &inkey)
 {
     size_t outLen = 0;
     auto key = key_padding(inkey);
-    auto outData = xxtea_encrypt((const void *)data.getBytes(), (size_t)data.getSize(), (const void *)key.c_str(), (size_t *)&outLen);
+    auto outData = xxtea_encrypt(
+                                 (unsigned char * )data.getBytes(),
+                                 (xxtea_long)data.getSize(),
+                                 (unsigned char *)key.c_str(),
+                                 (xxtea_long)key.length(),
+                                 (xxtea_long *)&outLen);
     Data ret;
     ret.copy((const unsigned char*)outData, outLen);
     return ret;
@@ -66,7 +71,12 @@ Data decrypt(const Data &data, const std::string &inkey)
 {
     size_t outLen = 0;
     auto key = key_padding(inkey);
-    auto outData = xxtea_decrypt((const void *)data.getBytes(), (size_t)data.getSize(), (const void *)key.c_str(), (size_t *)&outLen);
+    auto outData = xxtea_decrypt(
+                                 (unsigned char *)data.getBytes(),
+                                 (xxtea_long)data.getSize(),
+                                 (unsigned char *)key.c_str(),
+                                 (xxtea_long)key.length(),
+                                 (xxtea_long *)&outLen);
     Data ret;
     ret.copy((const unsigned char*)outData, outLen);
     return ret;

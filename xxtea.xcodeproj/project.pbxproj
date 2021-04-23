@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C7D5ABE1EEEA0BD00B1884E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D5ABD1EEEA0BD00B1884E /* main.cpp */; };
-		1C7D5AC61EEEA0E500B1884E /* xxtea.c in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D5AC41EEEA0E500B1884E /* xxtea.c */; };
 		1C7D5ACE1EEEAD9400B1884E /* CCData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D5ACC1EEEAD9400B1884E /* CCData.cpp */; };
+		CE821B0726326A6B00E05D3B /* xxtea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE821B0626326A6B00E05D3B /* xxtea.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,10 +27,10 @@
 /* Begin PBXFileReference section */
 		1C7D5ABA1EEEA0BD00B1884E /* xxtea */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xxtea; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7D5ABD1EEEA0BD00B1884E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		1C7D5AC41EEEA0E500B1884E /* xxtea.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xxtea.c; sourceTree = "<group>"; };
 		1C7D5AC51EEEA0E500B1884E /* xxtea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxtea.h; sourceTree = "<group>"; };
 		1C7D5ACC1EEEAD9400B1884E /* CCData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCData.cpp; sourceTree = "<group>"; };
 		1C7D5ACD1EEEAD9400B1884E /* CCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCData.h; sourceTree = "<group>"; };
+		CE821B0626326A6B00E05D3B /* xxtea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xxtea.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 			children = (
 				1C7D5ACC1EEEAD9400B1884E /* CCData.cpp */,
 				1C7D5ACD1EEEAD9400B1884E /* CCData.h */,
-				1C7D5AC41EEEA0E500B1884E /* xxtea.c */,
 				1C7D5AC51EEEA0E500B1884E /* xxtea.h */,
+				CE821B0626326A6B00E05D3B /* xxtea.cpp */,
 				1C7D5ABD1EEEA0BD00B1884E /* main.cpp */,
 			);
 			path = xxtea;
@@ -82,7 +82,6 @@
 				1C7D5AB61EEEA0BD00B1884E /* Sources */,
 				1C7D5AB71EEEA0BD00B1884E /* Frameworks */,
 				1C7D5AB81EEEA0BD00B1884E /* CopyFiles */,
-				1C7D5AC91EEEA9E400B1884E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -113,6 +112,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 1C7D5AB11EEEA0BD00B1884E;
@@ -125,30 +125,14 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1C7D5AC91EEEA9E400B1884E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "rm -rf /usr/local/bin/xxtea\n\ncp ${BUILD_DIR}/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/xxtea /usr/local/bin";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		1C7D5AB61EEEA0BD00B1884E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7D5AC61EEEA0E500B1884E /* xxtea.c in Sources */,
 				1C7D5ABE1EEEA0BD00B1884E /* main.cpp in Sources */,
 				1C7D5ACE1EEEAD9400B1884E /* CCData.cpp in Sources */,
+				CE821B0726326A6B00E05D3B /* xxtea.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +261,7 @@
 				1C7D5AC31EEEA0BD00B1884E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

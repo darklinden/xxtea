@@ -1,6 +1,7 @@
 /****************************************************************************
  Copyright (c) 2010-2012 cocos2d-x.org
- Copyright (c) 2013-2014 Chukong Technologies Inc.
+ Copyright (c) 2013-2016 Chukong Technologies Inc.
+ Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
  http://www.cocos2d-x.org
 
@@ -73,6 +74,8 @@ Data& Data::operator= (Data&& other)
 
 void Data::move(Data& other)
 {
+    clear();
+    
     _bytes = other._bytes;
     _size = other._size;
 
@@ -109,6 +112,7 @@ void Data::copy(const unsigned char* bytes, const ssize_t size)
 
 void Data::fastSet(unsigned char* bytes, const ssize_t size)
 {
+    free(_bytes);
     _bytes = bytes;
     _size = size;
 }
@@ -125,6 +129,8 @@ unsigned char* Data::takeBuffer(ssize_t* size)
     auto buffer = getBytes();
     if (size)
         *size = getSize();
-    fastSet(nullptr, 0);
+
+    _bytes = nullptr;
+    _size = 0;
     return buffer;
 }
