@@ -26,6 +26,7 @@
 
 #include "CCData.h"
 #include <stdlib.h>
+#include <cstring>
 
 const Data Data::Null;
 

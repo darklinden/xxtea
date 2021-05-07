@@ -7,7 +7,9 @@
 //
 
 #include <iostream>
+#include <algorithm>
 #include <map>
+#include <cctype>
 #include <string>
 #include <sstream>
 #include <unistd.h>
